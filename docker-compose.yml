@@ -26,6 +26,10 @@ services:
     - 'TOKEN_URL=http://localhost/keycloak/realms/app/protocol/openid-connect/token'
     - 'USERINFO_URL=http://localhost/keycloak/realms/app/protocol/openid-connect/userinfo'
     - 'JWKS_URL=http://localhost/keycloak/realms/app/protocol/openid-connect/certs'
+    - 'WEB_BIND=0.0.0.0:8000'
+    - 'WEB_WORKERS=4'
+    - 'WEB_LOG_LEVEL=debug'
+    - 'WEB_RELOAD=true'
   keycloak:
     image: 'jboss/keycloak:11.0.2'
     container_name: 'keycloak'

@@ -5,5 +5,6 @@ COPY requirements.txt /var/www/
 RUN cd /var/www && \
     python3 -m pip install -r requirements.txt
 COPY app.py .
+COPY config config
 RUN pip install gunicorn
-ENTRYPOINT ["gunicorn", "app:app", "--bind=0.0.0.0:8000", "--workers=4", "--log-level=debug", "--reload"]
+ENTRYPOINT ["gunicorn", "-c", "python:config.gunicorn", "app:app"]
